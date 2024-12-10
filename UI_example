@@ -1,0 +1,97 @@
+import React from 'react';
+import { Search, Plus, CheckSquare, MessageCircle, Folder, Tag, Calendar } from 'lucide-react';
+
+const MainInterface = () => {
+  return (
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar */}
+      <div className="w-64 bg-white border-r border-gray-200 p-4">
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-xl font-semibold text-gray-900">Notes Platform</h1>
+          <button className="p-2 text-gray-500 hover:text-gray-700">
+            <Plus className="w-5 h-5" />
+          </button>
+        </div>
+        
+        <nav className="space-y-1">
+          <a className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 rounded-md bg-gray-100">
+            <Folder className="w-5 h-5 mr-3" />
+            All Notes
+          </a>
+          <a className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-50">
+            <CheckSquare className="w-5 h-5 mr-3" />
+            Checklists
+          </a>
+          <a className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-50">
+            <MessageCircle className="w-5 h-5 mr-3" />
+            Chat
+          </a>
+        </nav>
+
+        <div className="mt-8">
+          <h2 className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Tags</h2>
+          <div className="mt-2 space-y-1">
+            <a className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-50">
+              <Tag className="w-4 h-4 mr-3" />
+              Documents
+            </a>
+            <a className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-50">
+              <Tag className="w-4 h-4 mr-3" />
+              Meetings
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main content */}
+      <div className="flex-1 overflow-auto">
+        {/* Header */}
+        <header className="bg-white border-b border-gray-200 p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center flex-1">
+              <div className="w-full max-w-lg">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <input
+                    type="text"
+                    placeholder="Search notes..."
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                New Note
+              </button>
+            </div>
+          </div>
+        </header>
+
+        {/* Content */}
+        <main className="p-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Note Card */}
+            <div className="bg-white p-4 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-gray-500 flex items-center">
+                  <Calendar className="w-4 h-4 mr-1" />
+                  Dec 10, 2024
+                </span>
+                <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-100 rounded-full">
+                  Document
+                </span>
+              </div>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Meeting Notes - Company X</h3>
+              <p className="text-sm text-gray-600 line-clamp-3">
+                Discussion about growth metrics and upcoming funding round. Team presented new product roadmap...
+              </p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default MainInterface;
